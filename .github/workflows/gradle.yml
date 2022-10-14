@@ -21,11 +21,10 @@ permissions:
 
 jobs:
   echo:
-  runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest
     steps:
     - name: Echoes env
-    run: echo $DB_URI
+      run: echo $DB_URI
     
   build:
 
