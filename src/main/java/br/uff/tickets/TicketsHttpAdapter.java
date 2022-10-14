@@ -11,6 +11,6 @@ public class TicketsHttpAdapter {
 
     @GetMapping
     public ResponseEntity<String> getHelloWorld() {
-        return ResponseEntity.ok("Hello World");
+        return ResponseEntity.ok("Hello, World");
     }
 }
