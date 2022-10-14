@@ -7,6 +7,9 @@
 
 name: Java CI with Gradle
 
+env:
+  DB_URI: ${{ secrets.DB_URI }}
+  
 on:
   push:
     branches: [ "*" ]
@@ -17,6 +20,12 @@ permissions:
   contents: read
 
 jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Echoes env
+      run: echo $DB_URI
+    
   build:
 
     runs-on: ubuntu-latest
@@ -29,8 +38,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
     - name: Build with Gradle
-      env:
-        DB_URI: ${{ secrets.DB_URI }}
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
